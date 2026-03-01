@@ -5,7 +5,7 @@ public class DiscountCalculator {
             double discountedPrice = DiscountCalculator.calculateDiscount(price, discount);
             System.out.println("Original price: " + price);
             System.out.println("Discount: " + discount + "%");
-            System.out.println("Discounted price: " + discountedPrice);
+            System.out.println("Discounted price after discount: " + discountedPrice);
     }
 
 
