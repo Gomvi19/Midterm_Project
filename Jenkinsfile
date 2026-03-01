@@ -20,7 +20,7 @@ pipeline {
                         echo 'Building Docker image'
                         bat 'docker build -t discount-calculator:latest .'
                         echo 'Running Docker container'
-                        bat 'docker run --rm -it discount-calculator:latest'
+                        bat 'docker run --rm discount-calculator:latest'
                     }
                 }
     }
