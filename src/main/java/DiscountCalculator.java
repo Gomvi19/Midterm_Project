@@ -1,7 +1,12 @@
+import java.util.logging.Logger;
 public class DiscountCalculator {
+
+    private static final Logger logger = Logger.getLogger("DiscountLogger");
+
     public static void main(String[] args) {
             double price = 100;
             int discount = 10;
+            logger.info("Starting discount calculation...");
             double discountedPrice = DiscountCalculator.calculateDiscount(price, discount);
             System.out.println("Original price: " + price);
             System.out.println("Discount: " + discount + "%");
