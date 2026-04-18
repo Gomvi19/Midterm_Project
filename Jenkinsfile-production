@@ -5,6 +5,7 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 input message: 'Deploy to PRODUCTION?'
+                bat 'docker rm -f discount-production || true'
                 bat 'docker run -d --name discount-production discount-calculator'
             }
         }

@@ -2,11 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Deploy to Production') {
+        stage('Build & Test') {
             steps {
-                input message: 'Deploy to PRODUCTION?'
-                bat 'docker rm -f discount-production || true'
-                bat 'docker run -d --name discount-production discount-calculator'
+                bat 'mvn clean package'
+            }
+        }
+
+        stage('Deploy to Staging') {
+            steps {
+                bat 'docker run -d --name discount-staging discount-calculator'
             }
         }
     }
