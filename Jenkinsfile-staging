@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build & Test') {
+            steps {
+                bat 'mvn clean package'
+            }
+        }
+
+        stage('Deploy to Staging') {
+            steps {
+                bat 'docker run -d --name discount-staging discount-calculator'
+            }
+        }
+    }
+}

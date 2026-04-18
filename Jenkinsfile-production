@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Deploy to Production') {
+            steps {
+                input message: 'Deploy to PRODUCTION?'
+                bat 'docker run -d --name discount-production discount-calculator'
+            }
+        }
+    }
+}
