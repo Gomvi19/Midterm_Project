@@ -8,6 +8,12 @@ pipeline {
             }
         }
 
+        stage('Build Docker Image') {
+            steps {
+                bat 'docker build -t discount-calculator .'
+            }
+        }
+
         stage('Deploy to Staging') {
             steps {
                 bat 'docker rm -f discount-staging || true'
