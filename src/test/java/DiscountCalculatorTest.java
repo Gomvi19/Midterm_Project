@@ -10,27 +10,27 @@ class DiscountCalculatorTest {
     @DisplayName("Compute Normal Case")
     void calculateNormalCase() {
         double expected = 90;
-        assertEquals(expected, DiscountCalculator.calculateDiscount(100,10),"Calculation is incorrect");
+        assertEquals(expected, DiscountCalculator.calculateDiscount(100,10,"ABC","123"),"Calculation is incorrect");
     }
 
     @org.junit.jupiter.api.Test
     @DisplayName("Compute Extreme Case")
     void calculateExtremeCase() {
         double expected = 0;
-        assertEquals(expected, DiscountCalculator.calculateDiscount(100,100),"Calculation is incorrect");
+        assertEquals(expected, DiscountCalculator.calculateDiscount(100,100,"ABC","123"),"Calculation is incorrect");
     }
 
     @org.junit.jupiter.api.Test
     @DisplayName("Compute Invalid Price Case")
     void calculateInvalidPriceCase() {
         double expected = 0;
-        assertEquals(expected, DiscountCalculator.calculateDiscount(-10,90),"Calculation is incorrect");
+        assertEquals(expected, DiscountCalculator.calculateDiscount(-10,90,"ABC","123"),"Calculation is incorrect");
     }
 
     @org.junit.jupiter.api.Test
     @DisplayName("Compute Invalid Percentage Case")
     void calculateInvalidPercentageCase() {
         double expected = 0;
-        assertEquals(expected, DiscountCalculator.calculateDiscount(100,-90),"Calculation is incorrect");
+        assertEquals(expected, DiscountCalculator.calculateDiscount(100,-90,"ABC","123"),"Calculation is incorrect");
     }
 }

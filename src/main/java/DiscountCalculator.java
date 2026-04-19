@@ -11,7 +11,7 @@ public class DiscountCalculator {
             String sessionId = "sessionABC";
             logger.info("Starting calculation | userId={} sessionId={}", userId, sessionId);
             logger.info("Starting discount calculation...");
-            double discountedPrice = DiscountCalculator.calculateDiscount(price, discount);
+            double discountedPrice = DiscountCalculator.calculateDiscount(price, discount,userId,sessionId);
             logger.info("Calculation complete | originalPrice={} discount={} finalPrice={} userId={} sessionId={}",
                 price, discount, discountedPrice, userId, sessionId);
             System.out.println("Original price: " + price);
@@ -20,8 +20,10 @@ public class DiscountCalculator {
     }
 
 
-    public static double calculateDiscount(double price, int percentage) {
+    public static double calculateDiscount(double price, int percentage, String userId, String sessionId) {
         if (price <= 0 || percentage < 0) {
+            logger.error("Invalid input detected | price={} discount={} userId={} sessionId={}",
+                    price, percentage, userId, sessionId);
             return 0;
         }
         return price - (price * percentage / 100);
