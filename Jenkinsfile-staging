@@ -18,6 +18,8 @@ pipeline {
             steps {
                 bat 'docker rm -f discount-staging || true'
                 bat 'docker run -d --name discount-staging discount-calculator'
+                bat 'docker run -d --name discount-staging-2 discount-calculator
+                bat 'docker run -d --name discount-staging-3 discount-calculator
             }
         }
     }
